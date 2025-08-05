@@ -6,58 +6,64 @@ import {
   Clock, 
   Target,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Filter,
+  Youtube
 } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: GraduationCap,
-      title: "Hỗ trợ bài tập lớn",
-      description: "Giúp sinh viên hoàn thành các bài tập, đồ án cuối kì với chất lượng cao và đúng tiến độ",
+      title: "Chứng chỉ Coursera",
+      description: "Hỗ trợ làm các khóa học Coursera và nhận chứng chỉ uy tín từ các trường đại học hàng đầu thế giới.",
       features: [
-        "Hỗ trợ tất cả các môn học",
-        "Giải thích chi tiết từng bước",
-        "Bảo đảm chất lượng điểm số",
-        "Hoàn thành đúng deadline"
+        "Hỗ trợ làm assignment",
+        "Peer review chất lượng",
+        "Quiz và exam",
+        "Chứng chỉ verified"
       ],
-      color: "from-blue-500 to-purple-600"
-    },
-    {
-      icon: Target,
-      title: "Hoàn thành chứng chỉ Coursera",
-      description: "Đồng hành cùng bạn hoàn thành các khóa học và lấy chứng chỉ từ các trường đại học hàng đầu",
-      features: [
-        "Hỗ trợ toàn bộ khóa học",
-        "Chiến lược học tập hiệu quả",
-        "Đảm bảo hoàn thành 100%",
-        "Chứng chỉ được công nhận"
-      ],
-      color: "from-emerald-500 to-teal-600"
+      color: "from-blue-500 to-purple-600",
+      cta: "Đặt ngay"
     },
     {
       icon: BookOpen,
-      title: "Source tài liệu ôn thi",
-      description: "Cung cấp tài liệu ôn thi chất lượng cao, được biên soạn bởi các chuyên gia giáo dục",
+      title: "Tài liệu & Source code",
+      description: "Cung cấp tài liệu học tập chất lượng và source code các project cho sinh viên IT.",
       features: [
-        "Tài liệu cập nhật mới nhất",
-        "Bài tập thực hành phong phú",
-        "Đề thi mẫu và lời giải",
-        "Hỗ trợ mọi kỳ thi"
+        "Tài liệu từ các trường top",
+        "Source code đầy đủ",
+        "Document chi tiết",
+        "Hỗ trợ debug"
       ],
-      color: "from-orange-500 to-red-500"
+      color: "from-emerald-500 to-teal-600",
+      cta: "Xem ngay"
+    },
+    {
+      icon: Target,
+      title: "Khóa học Online",
+      description: "Các khóa học cấp tốc với nội dung cô đọng, phù hợp cho sinh viên cần ôn thi nhanh.",
+      features: [
+        "Video HD chất lượng",
+        "Nội dung cô đọng",
+        "Ôn thi hiệu quả",
+        "Flexible schedule"
+      ],
+      color: "from-orange-500 to-red-500",
+      cta: "Đăng ký"
     },
     {
       icon: Clock,
-      title: "Khóa học cấp tốc",
-      description: "Các khóa học intensive giúp nắm vững kiến thức trong thời gian ngắn với phương pháp học tối ưu",
+      title: "Dịch vụ Media",
+      description: "Chỉnh sửa video, viết script, thiết kế slide chuyên nghiệp cho presentation và project.",
       features: [
-        "Lộ trình học tập cá nhân hóa",
-        "Giảng viên kinh nghiệm",
-        "Học 1-1 hoặc nhóm nhỏ",
-        "Cam kết kết quả học tập"
+        "Edit video chuyên nghiệp",
+        "Viết script sáng tạo",
+        "Thiết kế slide đẹp",
+        "Tư vấn content"
       ],
-      color: "from-violet-500 to-purple-600"
+      color: "from-violet-500 to-purple-600",
+      cta: "Liên hệ"
     }
   ];
 
@@ -71,13 +77,25 @@ const Services = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Giải pháp học tập toàn diện
+            Hỗ trợ học tập toàn diện
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Chúng tôi cung cấp các dịch vụ hỗ trợ học tập chuyên nghiệp, 
-            giúp bạn đạt được mục tiêu học tập một cách hiệu quả nhất
+            Chúng mình cung cấp đa dạng các dịch vụ hỗ trợ học tập chất lượng cao, 
+            từ chứng chỉ Coursera đến làm bài tập, project cho sinh viên.
           </p>
+          
+          {/* Subject Filter */}
+          <div className="mt-8">
+            <Button 
+              variant="outline" 
+              className="gap-2"
+              onClick={() => window.open('https://docs.google.com/document/d/your-google-doc-id', '_blank')}
+            >
+              <Filter className="h-4 w-4" />
+              Lọc theo môn học
+            </Button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -117,7 +135,7 @@ const Services = () => {
                   variant="ghost" 
                   className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                 >
-                  Tìm hiểu thêm
+                  {service.cta}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
@@ -129,14 +147,19 @@ const Services = () => {
         <div className="text-center mt-16">
           <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card border">
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Sẵn sàng bắt đầu hành trình học tập?
+              Cần hỗ trợ học tập ngay?
             </h3>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Liên hệ với chúng tôi ngay hôm nay để được tư vấn miễn phí và nhận ưu đãi đặc biệt
+              Liên hệ với Tuấn & Quân để được tư vấn và hỗ trợ tốt nhất cho việc học của bạn.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-white shadow-elegant">
-                Nhận tư vấn miễn phí
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary hover:opacity-90 text-white shadow-elegant gap-2"
+                onClick={() => window.open('https://www.youtube.com/@tuanquanservices', '_blank')}
+              >
+                <Youtube className="h-5 w-5" />
+                Đặt dịch vụ ngay
               </Button>
               <Button size="lg" variant="outline">
                 Xem bảng giá

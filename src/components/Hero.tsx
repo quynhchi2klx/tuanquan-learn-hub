@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Users, Award } from "lucide-react";
-import heroImage from "@/assets/hero-education.jpg";
+import { ArrowRight, Star, Users, Award, Youtube } from "lucide-react";
+import avatarImage from "@/assets/avatar-tuan-quan.png";
 
 const Hero = () => {
   return (
@@ -23,30 +23,34 @@ const Hero = () => {
               </div>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Tuấn & Quân
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Tuấn & Quân
+                </span>
                 <br />
-                <span className="text-white/90">Learn Hub</span>
+                <span className="text-foreground">Hỗ trợ học tập toàn diện</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-white/80 max-w-lg">
-                Giải pháp học tập toàn diện - Từ bài tập đại học đến chứng chỉ quốc tế
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-lg">
+                Chúng mình cung cấp các dịch vụ hỗ trợ học tập chất lượng cao từ chứng chỉ Coursera, 
+                tài liệu học tập đến các khóa học online và hỗ trợ làm bài tập.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-white text-primary hover:bg-white/90 shadow-elegant text-lg px-8 py-4"
+                className="shadow-elegant hover:shadow-lg transition-all duration-300 text-lg px-8 py-4"
+                onClick={() => window.open('https://www.youtube.com/@tuanquanservices', '_blank')}
               >
-                Khám phá dịch vụ
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <Youtube className="mr-2 h-5 w-5" />
+                Đặt dịch vụ ngay
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white text-white hover:bg-white/10 text-lg px-8 py-4"
+                className="text-lg px-8 py-4 border-2 hover:bg-primary/5"
               >
-                Tư vấn miễn phí
+                Xem dịch vụ
               </Button>
             </div>
 
@@ -56,51 +60,50 @@ const Hero = () => {
                 <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-2 mx-auto">
                   <Users className="w-6 h-6" />
                 </div>
-                <div className="text-2xl font-bold">500+</div>
-                <div className="text-sm text-white/70">Học viên tin tưởng</div>
+                <div className="text-2xl font-bold text-foreground">1000+</div>
+                <div className="text-sm text-muted-foreground">Thành viên</div>
               </div>
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-2 mx-auto">
-                  <Award className="w-6 h-6" />
+                <div className="flex items-center justify-center w-12 h-12 bg-secondary/10 rounded-lg mb-2 mx-auto">
+                  <Award className="w-6 h-6 text-secondary" />
                 </div>
-                <div className="text-2xl font-bold">200+</div>
-                <div className="text-sm text-white/70">Chứng chỉ hoàn thành</div>
+                <div className="text-2xl font-bold text-foreground">100+</div>
+                <div className="text-sm text-muted-foreground">Dịch vụ</div>
               </div>
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-2 mx-auto">
-                  <Star className="w-6 h-6" />
+                <div className="flex items-center justify-center w-12 h-12 bg-accent/30 rounded-lg mb-2 mx-auto">
+                  <Star className="w-6 h-6 text-accent-foreground" />
                 </div>
-                <div className="text-2xl font-bold">4.9/5</div>
-                <div className="text-sm text-white/70">Đánh giá trung bình</div>
+                <div className="text-2xl font-bold text-foreground">24/7</div>
+                <div className="text-sm text-muted-foreground">Hỗ trợ</div>
               </div>
             </div>
           </div>
 
           {/* Right Image */}
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-card">
               <img 
-                src={heroImage} 
-                alt="Học tập chuyên nghiệp với Tuấn & Quân" 
-                className="w-full h-auto object-cover"
+                src={avatarImage} 
+                alt="Tuấn & Quân - Avatar" 
+                className="w-full h-[500px] object-contain p-8"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
             
             {/* Floating testimonial card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-elegant max-w-xs">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">TQ</span>
+            <div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-card border">
+              <div className="flex items-center gap-3">
+                <div className="flex text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-semibold text-foreground">Học viên xuất sắc</div>
-                  <div className="text-sm text-muted-foreground">Hoàn thành 15 chứng chỉ</div>
-                </div>
+                <span className="font-semibold">5.0</span>
               </div>
-              <p className="text-sm text-foreground mt-3">
-                "Dịch vụ tuyệt vời! Đã giúp tôi hoàn thành bằng đại học với điểm cao."
+              <p className="text-sm text-muted-foreground mt-2">
+                "Dịch vụ tuyệt vời, hỗ trợ nhiệt tình!"
               </p>
+              <p className="text-xs text-muted-foreground mt-1">- Sinh viên UIT</p>
             </div>
           </div>
         </div>
